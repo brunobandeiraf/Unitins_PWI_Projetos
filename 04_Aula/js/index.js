@@ -1,18 +1,22 @@
-//Estudar DOM
-
-function clearForm(){
-    document.getElementById('contactForm').reset()
+// Função para apagar os dados do formulário
+function clearForm() {
+    document.getElementById('contactForm').reset();
 }
 
-function saveForm(){
+// Função de exemplo para salvar dados (apenas um alerta)
+function saveForm() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const message = document.getElementById('message').value;
 
-    // alert("Nome: " +  name)
+    // alert('Formulário salvo com sucesso!\n' +
+    //     'Nome: ' + name + '\n' +
+    //     'E-mail: ' + email + '\n' +
+    //     'Senha: ' + password + '\n' +
+    //     'Mensagem: ' + message);
 
-    // Verificar se já existem dados salvos no localStorage
+    // Verifica se já existem dados salvos no localStorage
     let savedData = JSON.parse(localStorage.getItem('formData')) || [];
 
     // Cria um objeto com os dados do formulário
@@ -23,15 +27,16 @@ function saveForm(){
         message: message
     };
 
-    // Adiciona os dados ao Array
-    savedData.push(formData)
+    // Adiciona os dados ao array
+    savedData.push(formData);
 
-    // Salvar o array atualizado no localStorage
+    // Salva o array atualizado no localStorage
     localStorage.setItem('formData', JSON.stringify(savedData));
 
     // Exibe um alerta de sucesso
-    alert("Formulário salvo com sucesso!");
+    alert('Formulário salvo com sucesso!');
 
-    clearForm();
+    clearForm()
+   
     
 }
